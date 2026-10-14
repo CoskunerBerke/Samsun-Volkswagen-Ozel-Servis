@@ -2,24 +2,24 @@ import React from 'react';
 
 const photos = [
   {
-    src: '/yilro/slide1.jpg',
-    title: 'Samsun Tekkeköy OSB Merkez Fabrikamız',
-    subtitle: 'Vali M. Erdoğan Cebeci Bulvarı No: 47 • 4.000 m² Kapalı Alan',
+    src: '/kestek/banner1.jpg',
+    title: 'Camlı Üstten Yanmalı Pik Tuğlalı Kuzine',
+    subtitle: 'Yüksek ısı verimli, seramik camlı ve geniş fırınlı pik tuğlalı kuzine',
   },
   {
-    src: '/yilro/slide2.jpg',
-    title: 'Zengin Kumaş ve Renk Kartelası',
-    subtitle: 'Etek, ceket, yelek, bluz, elbise ve pantolon koleksiyon kumaşları',
+    src: '/kestek/banner2.jpg',
+    title: '1003-A Majolik Geniş Fırın Döküm Tuğlalı',
+    subtitle: 'Dayanıklı döküm ızgara ve ateş tuğlası sistemiyle uzun ömürlü kullanım',
   },
   {
-    src: '/yilro/parallax_pro.jpg',
-    title: 'Yüksek Kaliteli İplik & Dokuma Hammaddeleri',
-    subtitle: 'Avrupa ihracat standartlarında hammadde ve aksesuar kullanımı',
+    src: '/kestek/banner3.jpg',
+    title: 'Yeni Dik Camlı Döküm Tuğlalı Soba',
+    subtitle: 'Özel iç döküm ızgara haznesi ve ısıya dayanıklı ön izleme camı',
   },
   {
-    src: '/yilro/slide3.jpg',
-    title: 'Hassas Kalıp ve %100 Ölçü Kontrolü',
-    subtitle: 'TSE ve BVQİ ISO 9001 Kalite Güvence Sistemi standartlarında denetim',
+    src: '/kestek/banner4.jpg',
+    title: 'Yeni Şömineli Soba Modelimiz',
+    subtitle: 'Geniş şömine camı, sağlam döküm ızgara ve yüksek ısıtma performansı',
   },
 ];
 
@@ -29,34 +29,34 @@ export const WorkshopGallery: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
-            <div className="text-blue-700 text-xs font-bold uppercase tracking-widest mb-2">
-              FABRİKA &amp; ÜRETİM GALERİSİ
+            <div className="text-red-600 text-xs font-bold uppercase tracking-widest mb-2">
+              ÖNE ÇIKAN MODELLERİMİZ
             </div>
             <h2 className="font-display text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-              Tesisimizden ve Üretim Sürecimizden Kareler
+              Kuzine, Şömineli ve Döküm Tuğlalı Soba Modellerimiz
             </h2>
           </div>
           <p className="text-slate-600 text-sm max-w-md">
-            Samsun Organize Sanayi Bölgesi&apos;ndeki 4.000 m² fabrikamız, kumaş hazırlık ve kalite kontrol süreçlerimiz.
+            Samsun OSB fabrikamızda üretilen yüksek verimli soba ve kuzine serilerimizden örnekler.
           </p>
         </div>
 
-        {/* Clean 2x2 Photo Grid with Cross-Browser aspect-[16/10] */}
+        {/* Clean 2x2 Photo Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {photos.map((photo) => (
             <div
               key={photo.title}
-              className="group bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs hover:border-blue-400 transition-colors"
+              className="group bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs hover:border-red-400 transition-colors"
             >
-              <div className="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+              <div className="aspect-[16/10] w-full overflow-hidden bg-white p-3 flex items-center justify-center">
                 <img
                   src={photo.src}
                   alt={photo.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
-              <div className="p-5">
+              <div className="p-5 border-t border-slate-100">
                 <h3 className="font-display text-lg font-bold text-slate-900 mb-1">
                   {photo.title}
                 </h3>

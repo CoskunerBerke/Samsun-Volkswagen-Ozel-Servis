@@ -1,60 +1,54 @@
 import React from 'react';
-import { Scissors, Layers, Sparkles, Shirt, CheckCircle2, PackageCheck } from 'lucide-react';
+import { Flame, ShieldCheck, Sparkles, Layers, Box, CheckCircle2 } from 'lucide-react';
 
-const productItems = [
+const productGroups = [
   {
-    icon: Shirt,
-    title: 'Bayan Ceket & Blazer Üretimi',
-    status: 'BANTTA',
-    statusColor: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+    icon: Flame,
+    title: 'Marifetli & Majolik Kuzineler',
+    badge: 'PATENTLİ SERİ',
     description:
-      'Astarlı kruvaze ceket, klasik ofis blazer ve mevsimlik dokuma bayan ceket modellerinde Avrupa standartlarında seri üretim.',
-    tags: ['Astarlı Ceket', 'Blazer Koleksiyon', 'İhracat Kalitesi'],
+      'Patentli 2011 Marifetli Kuzine (TR201001761), 1036 / 1036-A / 1036-B Majolik Kovalı Kuzine ve 1003-C Majolik Döküm Tuğlalı Kuzine modelleri.',
+    tags: ['2011 Marifetli Kuzine', '1036 Majolik Serisi', 'Geniş Fırınlı'],
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Pik Tuğlalı & Emaye Kuzineler',
+    badge: 'KUZİNELER',
+    description:
+      'Camlı Üstten Yanmalı Pik Tuğlalı Kuzine, 1001 Pik Tuğlalı, 1002 Kovalı, 1004 & 1015 Emaye, 1016 Beyaz ve Nikelaj Kayaklı Pikli Kuzine.',
+    tags: ['Üstten Yanmalı', '1015 Emaye & 1016 Beyaz', 'Pik Tuğlalı'],
   },
   {
     icon: Sparkles,
-    title: 'Bayan Elbise Grubu',
-    status: 'BANTTA',
-    statusColor: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+    title: 'Döküm Tuğlalı & Turbo Sobalar',
+    badge: 'DÖKÜM TUĞLALI',
     description:
-      'Viskon, şifon, poplin ve dokuma kumaşlardan günlük, kurumsal ve sezonluk bayan elbise koleksiyonlarının dikimi.',
-    tags: ['Sezonluk Elbise', 'Dokuma & Viskon', 'Seri Bant Üretimi'],
+      'Yüksek ısı verimli 1003-A Majolik Geniş Fırın, 1034-A Turbo Döküm Tuğlalı ve 1034-B Turbo Döküm Sobalı uzun ömürlü ısıtma modelleri.',
+    tags: ['1003-A Majolik', '1034-A / 1034-B Turbo', 'Döküm Tuğla'],
+  },
+  {
+    icon: Flame,
+    title: 'Yeni Şömineli & Dik Camlı Sobalar',
+    badge: 'ŞÖMİNELİ SERİ',
+    description:
+      'Isıya dayanıklı seramik camlı Yeni Şömineli Soba ve 2013 Yeni Dik Camlı Soba modelleriyle salonlarda şömine keyfi ve yüksek ısı gücü.',
+    tags: ['Yeni Şömineli Soba', 'Yeni Dik Camlı Soba', 'Isıya Dayanıklı Cam'],
+  },
+  {
+    icon: Box,
+    title: 'Kovalı & Dört Köşe Sobalar',
+    badge: 'KOVALI SOBA',
+    description:
+      '2012 Marifetli Dört Köşe Alttan ve Önden Havalı Soba, 1005 Lüx Dört Köşe, 1007 / 1007-A Panelli, 1040 Kovalı Odun Sobası ve 1052 Kovalı Soba.',
+    tags: ['2012 Marifetli Dört Köşe', '1005 Lüx & 1007 Panelli', '1040 & 1052 Kovalı'],
   },
   {
     icon: Layers,
-    title: 'Bayan Pantolon Üretimi',
-    status: 'BANTTA',
-    statusColor: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+    title: 'Izgaralı Sobalar & Yedek Parça',
+    badge: 'IZGARALI SOBA',
     description:
-      'Yüksek bel kumaş pantolon, klasik kesim, palazzo ve cigarette pantolon modellerinde hassas kalıp ve ölçü kontrolü.',
-    tags: ['Kumaş Pantolon', 'Klasik & Palazzo', 'Hassas Kalıp'],
-  },
-  {
-    icon: Scissors,
-    title: 'Bayan Etek Koleksiyonu',
-    status: 'SEVK',
-    statusColor: 'text-slate-700 bg-slate-100 border-slate-300',
-    description:
-      'Kalem etek, pliseli, A-kesim ve astarlı bayan etek modellerinde yüksek dikiş kalitesi ve zamanında sevkiyat.',
-    tags: ['Kalem & Pliseli Etek', 'Astarlı Dikim', 'Avrupa Sevkiyat'],
-  },
-  {
-    icon: Sparkles,
-    title: 'Bayan Bluz & Gömlek Grubu',
-    status: 'GELECEK',
-    statusColor: 'text-red-700 bg-red-50 border-red-200',
-    description:
-      'İnce dokuma, şifon, saten ve pamuklu kumaşlardan zarif kesimli bayan bluz ve gömlek koleksiyonu imalatı.',
-    tags: ['Dokuma Bluz', 'Bayan Gömlek', 'Özel İşçilik'],
-  },
-  {
-    icon: PackageCheck,
-    title: 'Bayan Yelek & Takım Kombinleri',
-    status: 'SEVK',
-    statusColor: 'text-slate-700 bg-slate-100 border-slate-300',
-    description:
-      'Ceket, pantolon ve etek gruplarını tamamlayan astarlı kumaş yelekler ve ikili/üçlü bayan takım üretimi.',
-    tags: ['Astarlı Yelek', 'İkili & Üçlü Takım', 'Askılı Paketleme'],
+      '1040-A Yüksek Verimli Izgaralı Soba serisi ve tüm Kestek Soba modelleri için orijinal döküm ızgara, ateş tuğlası, kova ve tepsi ekipmanları.',
+    tags: ['1040-A Izgaralı Soba', 'Döküm Izgara', 'Orijinal Ekipman'],
   },
 ];
 
@@ -64,35 +58,33 @@ export const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
-            <div className="text-blue-700 text-xs font-bold uppercase tracking-widest mb-2">
-              BAYAN KONFEKSİYON ÜRÜNLERİMİZ
+            <div className="text-red-600 text-xs font-bold uppercase tracking-widest mb-2">
+              ÜRÜN GRUPLARIMIZ
             </div>
             <h2 className="font-display text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-              İmal Ettiğimiz Başlıca Ürün Grupları
+              Kuzineler, Döküm Tuğlalı, Kovalı ve Izgaralı Sobalar
             </h2>
           </div>
           <p className="text-slate-600 text-sm max-w-md">
-            Üretim durum ifadeleri: Yeşil <strong className="text-emerald-700">BANTTA</strong>, Kırmızı <strong className="text-red-600">GELECEK</strong>, Gri <strong className="text-slate-600">SEVK</strong> durumunu gösterir.
+            Yüksek ısı verimliliği, yakıt tasarrufu ve uzun ömürlü döküm/emaye kalitesiyle üretilen başlıca soba ve kuzine modellerimiz.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {productItems.map((item) => {
+          {productGroups.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className="bg-slate-50 border border-slate-200 rounded-xl p-6 flex flex-col justify-between hover:border-blue-400 transition-colors shadow-2xs"
+                className="bg-slate-50 border border-slate-200 rounded-xl p-6 flex flex-col justify-between hover:border-red-400 transition-colors shadow-2xs"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-5">
-                    <div className="w-11 h-11 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-blue-700 shadow-2xs">
+                    <div className="w-11 h-11 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-red-600 shadow-2xs">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span
-                      className={`text-[11px] font-bold px-2.5 py-1 rounded-md border ${item.statusColor}`}
-                    >
-                      {item.status}
+                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-red-50 text-red-700 border border-red-200">
+                      {item.badge}
                     </span>
                   </div>
 

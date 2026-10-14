@@ -1,37 +1,37 @@
 import React, { useState } from 'react';
-import { Phone, MapPin, Menu, X, Mail, ArrowRight } from 'lucide-react';
+import { Phone, MapPin, Menu, X, Flame, ArrowRight } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Hakkımızda & Sertifikalar', href: '#kurumsal' },
-    { name: 'Referanslarımız', href: '#referanslar' },
-    { name: 'Ürünlerimiz', href: '#urunler' },
-    { name: 'Üretim & Galeri', href: '#tesis' },
-    { name: 'İletişim', href: '#iletisim' },
+    { name: 'Kurumsal & Misyonumuz', href: '#kurumsal' },
+    { name: 'Bayi & Müşteri Yorumları', href: '#referanslar' },
+    { name: 'Ürün Gruplarımız', href: '#urunler' },
+    { name: 'Modellerimizden Kareler', href: '#tesis' },
+    { name: 'İletişim & Sipariş', href: '#iletisim' },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-4">
-          {/* Left: Official Logo + Nav Links */}
+          {/* Left: Official KESTEK Logo + Nav Links */}
           <div className="flex items-center gap-7">
             <a href="#" className="flex items-center gap-3 shrink-0">
-              <div className="bg-white px-2.5 py-1 rounded-md shadow-xs">
+              <div className="bg-white px-2.5 py-1.5 rounded-md shadow-xs">
                 <img
-                  src="/yilro/logo.png"
-                  alt="Yılro İnternasyonal Giyim Logo"
-                  className="h-9 w-auto object-contain"
+                  src="/kestek/logo.png"
+                  alt="Kestek Soba Sanayii Logo"
+                  className="h-8 sm:h-9 w-auto object-contain"
                 />
               </div>
               <div className="hidden sm:block border-l border-white/15 pl-3">
                 <div className="font-display font-bold text-base text-white tracking-wide leading-tight">
-                  YILRO GİYİM
+                  KESTEK SOBA SANAYİİ
                 </div>
-                <div className="text-[11px] text-slate-400 font-medium">
-                  1980 Hollanda • 1989 Samsun OSB
+                <div className="text-[11px] text-amber-400 font-medium">
+                  Yüksek Verimli Soba &amp; Kuzine • Samsun OSB
                 </div>
               </div>
             </a>
@@ -49,22 +49,22 @@ export const Navbar: React.FC = () => {
             </nav>
           </div>
 
-          {/* Right: Direct Phone + Clean CTA */}
+          {/* Right: Direct Factory Phone + Order CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:+903622667170"
+              href="tel:+903622667670"
               className="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold px-4 py-2.5 rounded-lg border border-white/15 transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-sky-400" />
-              <span>Fabrika: 0362 266 71 70</span>
+              <Phone className="w-3.5 h-3.5 text-amber-400" />
+              <span>Fabrika: 0362 266 76 70</span>
             </a>
 
             <a
               href="#iletisim"
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-lg transition-colors shadow-sm"
+              className="flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-lg transition-colors shadow-sm"
             >
-              <Mail className="w-4 h-4" />
-              <span>İletişim &amp; Teklif Al</span>
+              <Flame className="w-4 h-4" />
+              <span>Sipariş &amp; Bayilik Başvurusu</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -98,23 +98,23 @@ export const Navbar: React.FC = () => {
 
           <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
             <div className="flex items-center gap-2 text-xs text-slate-400 px-2">
-              <MapPin className="w-4 h-4 text-sky-400 shrink-0" />
-              <span>OSB Vali M. Erdoğan Cebeci Bulvarı No:47 Tekkeköy / Samsun</span>
+              <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
+              <span>Organize Sanayi Bölgesi Erdoğan Cebeci Bulv. No:44 Kirazlık / Samsun</span>
             </div>
             <div className="grid grid-cols-2 gap-2.5">
               <a
-                href="tel:+903622667170"
-                className="flex items-center justify-center gap-2 bg-blue-600 text-white font-bold py-3 rounded-lg text-sm"
+                href="tel:+903622667670"
+                className="flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-3 rounded-lg text-sm"
               >
                 <Phone className="w-4 h-4" />
-                0362 266 71 70
+                Fabrikayı Ara
               </a>
               <a
-                href="mailto:info@yilrogiyim.com.tr"
+                href="tel:+903622380777"
                 className="flex items-center justify-center gap-2 bg-slate-800 text-white font-bold py-3 rounded-lg text-sm"
               >
-                <Mail className="w-4 h-4" />
-                E-Posta
+                <Phone className="w-4 h-4" />
+                Merkez: 238 07 77
               </a>
             </div>
           </div>

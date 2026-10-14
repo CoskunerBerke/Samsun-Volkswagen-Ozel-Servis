@@ -1,134 +1,157 @@
 import React from 'react';
-import { Award, Building2, CheckCircle2, ShieldCheck, Truck, Users } from 'lucide-react';
-import { MercedesLogo } from './MercedesLogo';
+import { Award, CheckCircle2, Scissors, Layers, Sparkles, PackageCheck, Globe2 } from 'lucide-react';
 
-const oemBrands = [
-  { name: 'Mercedes-Benz Orijinal Parça', role: 'Yıldızlı Orijinal Ekipman', isMercedes: true },
-  { name: 'BOSCH', role: 'Elektronik, Enjektör & Ateşleme' },
-  { name: 'MANN-FILTER & MAHLE', role: 'Hava, Yağ, Yakıt & Polen Filtreleri' },
-  { name: 'LEMFÖRDER & SACHS', role: 'Ön Takım, Salıncak & Süspansiyon' },
-  { name: 'HELLA PAGID & TEXTAR', role: 'Fren Disk & Balata Sistemleri' },
-  { name: 'BILSTEIN', role: 'Airmatic & Amortisör Sistemleri' },
-  { name: 'BORGWARNER & GARRETT', role: 'Turboşarj & Basınç Sistemleri' },
-  { name: 'MOBIL 1 & PETRONAS', role: 'MB-Approval Onaylı Motor & Şanzıman Yağları' },
-];
-
-const fleetPartners = [
+const productionDepartments = [
   {
-    title: 'Turizm & VIP Transfer Filoları',
-    desc: 'Samsun, Ordu ve Trabzon hattında çalışan Mercedes Vito Tourer ve Sprinter VIP transfer şirketlerinin periyodik filo bakımı.',
-    icon: Truck,
+    step: '01',
+    title: 'Modelhane & Otomatik Kesim',
+    desc: 'Avrupa ve yurt içi koleksiyon kalıplarının CAD/CAM sistemlerinde pastal planlaması, kumaş serimi ve yüksek hassasiyetli kesim süreci.',
+    icon: Scissors,
   },
   {
-    title: 'Organize Sanayi & Fabrika Makam Araçları',
-    desc: 'Tekkeköy ve Samsun OSB’de faaliyet gösteren sanayi kuruluşlarının Mercedes C, E, S ve GLC serisi yönetici araçlarının garantili servisi.',
-    icon: Building2,
+    step: '02',
+    title: 'Bant & Konfeksiyon Dikim Hatları',
+    desc: '200 kişilik uzman üretim kadromuz ve modern makine parkurumuzla etek, ceket, yelek, bluz, elbise ve pantolon bantlarında seri üretim.',
+    icon: Layers,
   },
   {
-    title: 'Kurumsal Kiralama & Ticari Filolar',
-    desc: 'Zaman kaybına tahammülü olmayan şirket araçları ve hafif ticari Mercedes filoları için aynı gün parça tedariği ve öncelikli servis.',
-    icon: ShieldCheck,
+    step: '03',
+    title: 'Ara Ütü, Son Ütü & Kalite Kontrol',
+    desc: 'ISO 9001 Kalite Güvence Sistemi kapsamında her ürünün ölçü, dikiş ve form standartlarına uygunluğunun %100 kontrol edilmesi.',
+    icon: Sparkles,
   },
   {
-    title: 'Karadeniz Bölgesi Mercedes Kullanıcıları',
-    desc: 'Samsun başta olmak üzere Amasya, Sinop, Çorum ve Ordu illerinden gelen bireysel Mercedes sahiplerinin güvenilir çözüm ortağı.',
-    icon: Users,
-  },
-];
-
-const masters = [
-  {
-    name: 'Engin Çalımlı',
-    role: 'Kurucu Ortak • Motor, Mekanik & Arıza Teşhis Uzmanı',
-    experience: 'Mercedes-Benz binek ve ticari araçlarda motor revizyonu, şanzıman ve mekanik sistemler.',
-  },
-  {
-    name: 'Ercan Aycan',
-    role: 'Kurucu Ortak • Elektronik, Xentry Teşhis & Bakım Uzmanı',
-    experience: 'Bilgisayarlı arıza tespiti, elektronik kontrol üniteleri, periyodik bakım ve Airmatic sistemleri.',
-  },
-  {
-    name: 'Uğur Gözoğlu',
-    role: 'Kurucu Ortak • Yedek Parça & Servis Operasyon Yönetimi',
-    experience: 'Orijinal ve OEM yedek parça tedariği, kurumsal filo koordinasyonu ve müşteri kabul.',
+    step: '04',
+    title: 'Paketleme & Uluslararası Sevkiyat',
+    desc: 'Müşteri talebine göre askılı veya kolili ihracat paketlemesi, barkodlama ve Hollanda başta olmak üzere dünya pazarlarına zamanında sevkiyat.',
+    icon: PackageCheck,
   },
 ];
 
 export const AboutWorkshop: React.FC = () => {
   return (
-    <section id="firmalar" className="py-14 md:py-20 bg-white border-b border-neutral-200">
+    <section id="kurumsal" className="py-16 md:py-24 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 text-black text-xs font-bold uppercase tracking-widest mb-2">
-              <Award className="w-4 h-4" />
-              ÇALIŞILAN FİRMALAR, PARÇA MARKALARI &amp; KURUCU USTALARIMIZ
+        {/* Part 1: Corporate Story & Real Samsun OSB Factory Building */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
+          <div className="lg:col-span-7 space-y-5">
+            <div className="inline-flex items-center gap-2 text-sky-700 bg-sky-50 border border-sky-200 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+              <Globe2 className="w-4 h-4" />
+              <span>1980 Hollanda • 1989 Samsun Organize Sanayi Bölgesi</span>
             </div>
-            <h2 className="font-display text-2xl sm:text-4xl font-bold text-black tracking-tight">
-              Orijinal Yedek Parça Markaları &amp; Hizmet Verdiğimiz Filolar
-            </h2>
-          </div>
-          <p className="text-neutral-600 text-sm max-w-md">
-            Aracınıza yan sanayi veya kalitesiz parça takılmaz. Yalnızca Mercedes-Benz fabrikasının onayladığı orijinal ve Alman OEM üreticileriyle çalışıyoruz.
-          </p>
-        </div>
 
-        {/* OEM Brands Grid */}
-        <div className="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 sm:p-8 mb-10">
-          <div className="text-xs font-bold uppercase tracking-wider text-black mb-4 flex items-center gap-2">
-            <MercedesLogo className="w-4 h-4" variant="dark" />
-            <span>SERVİSİMİZDE KULLANILAN VE DEPOLANAN ORİJİNAL / OEM PARÇA MARKALARI</span>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
+              Yılro İnternasyonal Giyim San. ve Tic. Ltd. Şti. Hakkında
+            </h2>
+
+            <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+              <p>
+                <strong className="text-slate-900">1980 yılında Hollanda&apos;da</strong> kurulan <strong className="text-slate-900">Yılro Tekstil</strong>, uluslararası hazır giyim tecrübesini Türkiye&apos;ye taşıyarak <strong className="text-slate-900">1989 yılında Türkiye&apos;deki ilk şubesini Samsun&apos;da</strong> açmıştır.
+              </p>
+              <p>
+                Samsun Tekkeköy Organize Sanayi Bölgesi&apos;nde yer alan fabrika binamız <strong className="text-slate-900">4.000 m² kapalı alan</strong> üzerine kurulmuş olup bünyesinde <strong className="text-slate-900">200 personele</strong> istihdam sağlamaktadır. Firmamızın ana faaliyet konusu <strong className="text-slate-900">bayan konfeksiyonudur</strong>. İmal ettiğimiz ürünler başlıca; <strong className="text-slate-900">etek, ceket, yelek, bluz, elbise ve pantolondur</strong>.
+              </p>
+              <p>
+                Üretim kapasitemiz <strong className="text-slate-900">2.500 adet / gün</strong>&apos;dür. Üretimimiz başlıca <strong className="text-slate-900">kesim, dikim, ütü ve paket</strong> ana kategorilerinden oluşmaktadır. Müşteri memnuniyetini esas alan kaliteli üretim ve hizmeti zamanında sunmak ana politikamızdır. Uluslararası standartların belirlediği şartlarda üretim yapmak ve dünya piyasalarında rekabet etmek temel ilkemizdir.
+              </p>
+            </div>
+
+            <div className="pt-2 flex flex-wrap gap-3">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-800 bg-slate-100 border border-slate-200 px-3.5 py-2 rounded-lg">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>4.000 m² Kapalı Fabrika</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-800 bg-slate-100 border border-slate-200 px-3.5 py-2 rounded-lg">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>200 Uzman Çalışan</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-800 bg-slate-100 border border-slate-200 px-3.5 py-2 rounded-lg">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>2.500 Adet / Gün Kapasite</span>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-            {oemBrands.map((brand) => (
-              <div
-                key={brand.name}
-                className={`rounded-xl p-4 transition-colors ${
-                  brand.isMercedes
-                    ? 'bg-black text-white border border-black shadow-sm'
-                    : 'bg-white border border-neutral-200 hover:border-black shadow-2xs'
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-1">
-                  {brand.isMercedes && <MercedesLogo className="w-4 h-4 shrink-0" variant="light" />}
-                  <div
-                    className={`font-display font-bold text-sm ${
-                      brand.isMercedes ? 'text-white' : 'text-black'
-                    }`}
-                  >
-                    {brand.name}
+
+          {/* Right: Real Factory Exterior & Textile Visuals */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+              <img
+                src="/yilro/slide1.jpg"
+                alt="Yılro İnternasyonal Giyim Samsun OSB Fabrika Binası"
+                className="w-full h-60 sm:h-68 object-cover"
+              />
+              <div className="p-4 bg-white border-t border-slate-200 flex items-center justify-between">
+                <div>
+                  <div className="font-display font-bold text-slate-900 text-sm">
+                    Samsun Tekkeköy OSB Merkez Fabrikamız
+                  </div>
+                  <div className="text-xs text-slate-500">
+                    Vali M. Erdoğan Cebeci Bulvarı No: 47 • 4.000 m² Kapalı Alan
                   </div>
                 </div>
-                <div className={`text-xs ${brand.isMercedes ? 'text-neutral-300' : 'text-neutral-600'}`}>
-                  {brand.role}
+                <span className="text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-200 px-2.5 py-1 rounded-md">
+                  1989&apos;dan Beri
+                </span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-xl overflow-hidden border border-slate-200 h-28 relative">
+                <img
+                  src="/yilro/slide2.jpg"
+                  alt="Zengin Kumaş ve Renk Kartelası"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent flex items-end p-2.5">
+                  <span className="text-[11px] font-bold text-white">Kumaş &amp; Koleksiyon Çeşitliliği</span>
                 </div>
               </div>
-            ))}
+              <div className="rounded-xl overflow-hidden border border-slate-200 h-28 relative">
+                <img
+                  src="/yilro/slide3.jpg"
+                  alt="Hassas Kalıp ve Ölçü Standartları"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent flex items-end p-2.5">
+                  <span className="text-[11px] font-bold text-white">Avrupa Kalıp Standartları</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Corporate Fleet Partners Grid */}
-        <div className="mb-12">
-          <h3 className="font-display text-xl sm:text-2xl font-bold text-black mb-5">
-            Çalıştığımız Kurumsal Filolar ve Müşteri Grupları
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {fleetPartners.map((partner) => {
-              const Icon = partner.icon;
+        {/* Part 2: 4 Core Production Stages (Kesim, Dikim, Ütü, Paket) */}
+        <div className="mb-16">
+          <div className="mb-8">
+            <p className="text-xs font-extrabold uppercase tracking-widest text-sky-700 mb-1">
+              ENTEGRE KONFEKSİYON SÜRECİMİZ
+            </p>
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-slate-900">
+              Kesim, Dikim, Ütü ve Paketleme Ana Kategorilerimiz
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {productionDepartments.map((dept) => {
+              const Icon = dept.icon;
               return (
                 <div
-                  key={partner.title}
-                  className="bg-white border border-neutral-200 rounded-xl p-5 shadow-xs hover:border-black transition-colors"
+                  key={dept.step}
+                  className="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:border-sky-400 transition-colors relative overflow-hidden"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-black flex items-center justify-center text-white mb-3.5">
-                    <Icon className="w-5 h-5" />
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-slate-900 text-sky-400 flex items-center justify-center">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="font-display text-2xl font-extrabold text-slate-300">
+                      {dept.step}
+                    </span>
                   </div>
-                  <h4 className="font-display font-bold text-black text-base mb-1.5">
-                    {partner.title}
+                  <h4 className="font-display text-base font-bold text-slate-900 mb-2">
+                    {dept.title}
                   </h4>
-                  <p className="text-xs text-neutral-600 leading-relaxed">
-                    {partner.desc}
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {dept.desc}
                   </p>
                 </div>
               );
@@ -136,43 +159,55 @@ export const AboutWorkshop: React.FC = () => {
           </div>
         </div>
 
-        {/* Founding Masters */}
-        <div className="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 sm:p-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
-            <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-neutral-700">
-                DOĞRUDAN USTASIYLA GÖRÜŞÜN
+        {/* Part 3: Official Certificates (TSE & BVQİ ISO 9001) */}
+        <div className="bg-slate-950 text-white rounded-2xl p-6 sm:p-10 border border-slate-800">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-6 space-y-3">
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-400 uppercase tracking-widest">
+                <Award className="w-4 h-4" />
+                <span>ULUSLARARASI KALİTE GÜVENCE SİSTEMİ</span>
               </div>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-black mt-0.5">
-                Kurucu Ustalarımız ve Yönetim Kadromuz
+              <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
+                TSE &amp; BVQİ ISO 9001 Kalite Sertifikalarımız
               </h3>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                &ldquo;Dürüstlük, doğruluk ve disiplinli çalışma ışığında üretim ve hizmetin kalitesinden tüm çalışanlar sorumludur&rdquo; ilkesinden hareketle fabrikamızda uluslararası onaylı Kalite Güvence Sistemi uygulanmaktadır.
+              </p>
             </div>
-            <span className="text-xs font-semibold text-black bg-white border border-neutral-300 px-3 py-1.5 rounded-lg">
-              19 Mayıs Sanayi Sitesi • Tekkeköy / Samsun
-            </span>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {masters.map((master) => (
-              <div
-                key={master.name}
-                className="bg-white border border-neutral-200 rounded-xl p-5 shadow-xs hover:border-black transition-colors"
-              >
-                <div className="flex items-center gap-2 text-black text-xs font-bold mb-1">
-                  <CheckCircle2 className="w-4 h-4 text-black" />
-                  Kurucu Usta
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* TSE Certificate Card */}
+              <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center gap-4">
+                <div className="w-20 h-16 bg-white rounded-lg p-2 flex items-center justify-center shrink-0">
+                  <img
+                    src="/yilro/cert_tse.jpg"
+                    alt="TSE ISO 9001:2000"
+                    className="max-h-full max-w-full object-contain"
+                  />
                 </div>
-                <div className="font-display text-lg font-bold text-black">
-                  {master.name}
+                <div>
+                  <div className="font-display font-bold text-white text-base">TSE</div>
+                  <div className="text-xs font-semibold text-sky-400">ISO 9001:2000</div>
+                  <div className="text-xs text-slate-400 mt-0.5">2006 Aralık – Bugüne</div>
                 </div>
-                <div className="text-xs font-bold text-neutral-700 mt-0.5 mb-2.5">
-                  {master.role}
-                </div>
-                <p className="text-xs text-neutral-600 leading-relaxed">
-                  {master.experience}
-                </p>
               </div>
-            ))}
+
+              {/* BVQI Certificate Card */}
+              <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center gap-4">
+                <div className="w-20 h-16 bg-white rounded-lg p-2 flex items-center justify-center shrink-0">
+                  <img
+                    src="/yilro/cert_bvqi.jpg"
+                    alt="BVQİ ISO 9001"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="font-display font-bold text-white text-base">BVQİ</div>
+                  <div className="text-xs font-semibold text-sky-400">ISO 9001 (94 Revizyonu)</div>
+                  <div className="text-xs text-slate-400 mt-0.5">Uluslararası Kalite Belgesi</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

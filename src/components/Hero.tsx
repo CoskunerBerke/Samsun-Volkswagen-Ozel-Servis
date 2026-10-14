@@ -1,72 +1,83 @@
 import React from 'react';
-import { Phone, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, ShieldCheck } from 'lucide-react';
+import VwLogo from './VwLogo';
 
-export const Hero: React.FC = () => {
+const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-[80vh] flex items-center bg-slate-950 overflow-hidden">
-      {/* Full-Screen Continuous Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        poster="/kestek/banner1.jpg"
-        className="absolute inset-0 w-full h-full object-cover scale-[1.02] pointer-events-none"
-      >
-        <source src="/kestek/hero-bg.mp4" type="video/mp4" />
-      </video>
+    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-slate-950 pt-24 pb-16">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/vw/vw-service.jpg"
+          className="w-full h-full object-cover object-center scale-105"
+        >
+          <source src="/vw/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60" />
+      </div>
 
-      {/* Clean High-Contrast Dark Overlay */}
-      <div className="absolute inset-0 bg-slate-950/65" />
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/35" />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-slate-950/40" />
-
-      {/* Clean Uncluttered Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
+      {/* Main Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-3xl">
-          <h1 className="font-display text-4xl sm:text-6xl font-bold text-white tracking-tight leading-[1.08] mb-5">
-            Kalite, güven ve dürüstlük ilkeleriyle{' '}
-            <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-red-400 bg-clip-text text-transparent">
-              yüksek verimli soba ve kuzine imalatı
-            </span>
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-sky-500/15 border border-sky-400/30 text-sky-300 text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md">
+            <VwLogo className="w-4 h-4 text-sky-400" />
+            <span>Samsun 19 Mayıs Sanayi Sitesi • VAG Grubu Uzmanlığı</span>
+          </div>
+
+          {/* Headline */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] mb-6">
+            Samsun Volkswagen{' '}
+            <span className="text-sky-400">Özel Servis</span> & Yedek Parça
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-200 leading-relaxed mb-8 max-w-2xl">
-            <strong className="text-white">Kestek Soba Sanayii</strong> güvencesiyle Samsun Organize Sanayi Bölgesi fabrikamızda; patentli <strong className="text-white">Marifetli Kuzine</strong>, majolik ve emaye kuzineler, döküm tuğlalı şömineli sobalar, kovalı ve ızgaralı soba modelleri üretiyoruz.
+          {/* Short Description */}
+          <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed mb-8 max-w-2xl">
+            Volkswagen, Audi, Seat ve Škoda araçlarınız için ODIS bilgisayarlı arıza tespiti,
+            DSG şanzıman onarımı, garantili periyodik bakım ve orijinal yedek parça hizmeti sunuyoruz.
           </p>
 
-          {/* Clean Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3.5 mb-6">
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center gap-4 mb-10">
             <a
-              href="#urunler"
-              className="inline-flex items-center gap-2.5 bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-4 rounded-xl text-sm sm:text-base transition-colors shadow-lg"
+              href="tel:+905444775657"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-base transition-all shadow-lg shadow-sky-500/25"
             >
-              <span>Ürün Gruplarımızı İncele</span>
-              <ArrowRight className="w-4 h-4" />
+              <Phone className="w-5 h-5" />
+              <span>Hemen Ara: 0544 477 56 57</span>
             </a>
 
             <a
-              href="#iletisim"
-              className="inline-flex items-center gap-2.5 bg-slate-900/75 hover:bg-slate-900 text-white font-bold px-6 py-4 rounded-xl text-sm sm:text-base transition-colors border border-white/20 backdrop-blur-md"
+              href="https://wa.me/905444775657?text=Merhaba,%20Samsun%20Volkswagen%20%C3%96zel%20Servis%20i%C3%A7in%20fiyat%20ve%20randevu%20bilgisi%20almak%20istiyorum."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-base border border-white/20 backdrop-blur-md transition-all"
             >
-              <span>Sipariş &amp; Bayilik Başvurusu</span>
+              <MessageCircle className="w-5 h-5 text-emerald-400" />
+              <span>WhatsApp Servis Hattı</span>
             </a>
 
             <a
-              href="tel:+903622667670"
-              className="inline-flex items-center gap-2 bg-slate-900/60 hover:bg-slate-900/90 text-slate-200 font-semibold px-5 py-4 rounded-xl text-sm sm:text-base transition-colors border border-white/15 backdrop-blur-md"
+              href="https://maps.app.goo.gl/kLAzCUYKyzsqo8X88"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 font-medium text-base border border-white/10 backdrop-blur-md transition-all"
             >
-              <Phone className="w-4 h-4 text-amber-400" />
-              <span>0362 266 76 70</span>
+              <MapPin className="w-5 h-5 text-sky-400" />
+              <span>Yol Tarifi Al</span>
             </a>
           </div>
 
-          {/* Single-Line Trust Footnote */}
-          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-300 font-medium">
-            <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+          {/* 1-Line Trust Note */}
+          <div className="flex items-center gap-2.5 text-sm text-slate-300 border-t border-white/10 pt-5">
+            <ShieldCheck className="w-5 h-5 text-sky-400 shrink-0" />
             <span>
-              Patentli Üretim (TR201001761) • Samsun OSB Fabrika &amp; Gülsan Sanayi Merkez • Türkiye Geneli Toptan Sevkiyat
+              Şabanoğlu Mah. 19 Mayıs Sanayi Sitesi 59. Sokak No:38 Tekkeköy / Samsun • Orijinal OEM Parça & Garantili İşçilik
             </span>
           </div>
         </div>
@@ -74,3 +85,5 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+
+export default Hero;

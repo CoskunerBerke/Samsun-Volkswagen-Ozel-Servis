@@ -1,66 +1,61 @@
 import React from 'react';
 
-const photos = [
-  {
-    src: '/kestek/banner1.jpg',
-    title: 'Camlı Üstten Yanmalı Pik Tuğlalı Kuzine',
-    subtitle: 'Yüksek ısı verimli, seramik camlı ve geniş fırınlı pik tuğlalı kuzine',
-  },
-  {
-    src: '/kestek/banner2.jpg',
-    title: '1003-A Majolik Geniş Fırın Döküm Tuğlalı',
-    subtitle: 'Dayanıklı döküm ızgara ve ateş tuğlası sistemiyle uzun ömürlü kullanım',
-  },
-  {
-    src: '/kestek/banner3.jpg',
-    title: 'Yeni Dik Camlı Döküm Tuğlalı Soba',
-    subtitle: 'Özel iç döküm ızgara haznesi ve ısıya dayanıklı ön izleme camı',
-  },
-  {
-    src: '/kestek/banner4.jpg',
-    title: 'Yeni Şömineli Soba Modelimiz',
-    subtitle: 'Geniş şömine camı, sağlam döküm ızgara ve yüksek ısıtma performansı',
-  },
-];
+const WorkshopGallery: React.FC = () => {
+  const photos = [
+    {
+      src: '/vw/vw-service.jpg',
+      title: 'Bilgisayarlı Arıza Tespiti & Mekanik Atölye',
+      subtitle: 'Modern lift ve ODIS diyagnostik ekipmanlarımız',
+    },
+    {
+      src: '/vw/spare-parts.jpg',
+      title: 'Orijinal & OEM Yedek Parça Deposu',
+      subtitle: 'Volkswagen, Audi, Seat ve Škoda orijinal yedek parçaları',
+    },
+    {
+      src: '/vw/office-lounge.png',
+      title: 'Servis Kabul & Müşteri Danışma',
+      subtitle: 'Şeffaf servis planlaması ve detaylı bilgilendirme',
+    },
+    {
+      src: '/vw/waiting-room.png',
+      title: 'Konforlu Müşteri Bekleme Alanımız',
+      subtitle: 'Aracınızın bakımı yapılırken dinlenebileceğiniz ferah salonumuz',
+    },
+  ];
 
-export const WorkshopGallery: React.FC = () => {
   return (
-    <section id="tesis" className="py-16 md:py-20 bg-slate-50 border-b border-slate-200">
+    <section id="galeri" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-          <div>
-            <div className="text-red-600 text-xs font-bold uppercase tracking-widest mb-2">
-              ÖNE ÇIKAN MODELLERİMİZ
-            </div>
-            <h2 className="font-display text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-              Kuzine, Şömineli ve Döküm Tuğlalı Soba Modellerimiz
-            </h2>
-          </div>
-          <p className="text-slate-600 text-sm max-w-md">
-            Samsun OSB fabrikamızda üretilen yüksek verimli soba ve kuzine serilerimizden örnekler.
+        <div className="max-w-2xl mb-12">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3.5 py-1.5 rounded-full mb-3">
+            SERVİSİMİZDEN KARELER
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Donanımlı Atölyemiz & Yedek Parça Merkezimiz
+          </h2>
+          <p className="text-slate-600 text-base sm:text-lg mt-3">
+            19 Mayıs Sanayi Sitesi’nde düzenli, temiz ve tam donanımlı servis alanımız.
           </p>
         </div>
 
-        {/* Clean 2x2 Photo Grid */}
+        {/* 2x2 Aspect-[16/10] Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {photos.map((photo) => (
             <div
               key={photo.title}
-              className="group bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs hover:border-red-400 transition-colors"
+              className="group relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm"
             >
-              <div className="aspect-[16/10] w-full overflow-hidden bg-white p-3 flex items-center justify-center">
+              <div className="aspect-[16/10] w-full overflow-hidden">
                 <img
                   src={photo.src}
                   alt={photo.title}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="p-5 border-t border-slate-100">
-                <h3 className="font-display text-lg font-bold text-slate-900 mb-1">
-                  {photo.title}
-                </h3>
-                <p className="text-slate-600 text-sm">{photo.subtitle}</p>
+              <div className="p-5 bg-white border-t border-slate-100">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900">{photo.title}</h3>
+                <p className="text-sm text-slate-600 mt-1">{photo.subtitle}</p>
               </div>
             </div>
           ))}
@@ -69,3 +64,5 @@ export const WorkshopGallery: React.FC = () => {
     </section>
   );
 };
+
+export default WorkshopGallery;

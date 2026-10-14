@@ -1,75 +1,105 @@
 import React from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Cpu, Wrench, Award } from 'lucide-react';
 
-const mainCategories = [
-  { name: '1. KUZİNELER', role: 'Marifetli, Majolik, Emaye & Pik Tuğlalı' },
-  { name: '2. DÖKÜM TUĞLALI', role: 'Geniş Fırınlı, Turbo & Şömineli Sobalar' },
-  { name: '3. KOVALI SOBALAR', role: 'Dört Köşe, Panelli & Alttan/Önden Havalı' },
-  { name: '4. IZGARALI SOBALAR', role: 'Yüksek Verimli 1040-A Izgaralı Serisi' },
-];
+const AboutWorkshop: React.FC = () => {
+  const summaryCards = [
+    {
+      icon: Cpu,
+      title: 'ODIS Arıza Tespiti',
+      desc: 'Volkswagen grubu orijinal test cihazları ile nokta atışı elektronik ve mekanik teşhis.',
+    },
+    {
+      icon: Wrench,
+      title: 'DSG & Motor Uzmanlığı',
+      desc: 'TSI / TDI motor revizyonu, triger seti değişimi, DSG mekatronik ve kavrama onarımı.',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Orijinal & OEM Parça',
+      desc: 'Aracınızın performansını ve değerini koruyan logolu orijinal ve Alman OEM yedek parçalar.',
+    },
+    {
+      icon: Award,
+      title: 'Şeffaf & Garantili Hizmet',
+      desc: 'İşlem öncesi net bilgilendirme, değişen parça ibrazı ve tüm bakımlarda servis garantisi.',
+    },
+  ];
 
-export const AboutWorkshop: React.FC = () => {
   return (
-    <section id="kurumsal" className="py-16 bg-white border-b border-slate-200">
+    <section id="kurumsal" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Clean Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column: Corporate Info */}
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-widest text-red-600 mb-1">
-              KURUMSAL KİMLİK, MİSYONUMUZ &amp; PATENTLİ TEKNOLOJİMİZ
-            </p>
-            <h2 className="font-display text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-              Kalite, Güven ve Dürüstlük İlkeleriyle Soba İmalatı
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3.5 py-1.5 rounded-full mb-4">
+              KURUMSAL SERVİS MERKEZİ
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
+              Alman Mühendisliğine Uygun Profesyonel Özel Servis
             </h2>
-          </div>
-          <span className="text-xs font-bold text-slate-600 bg-slate-100 border border-slate-200 px-3.5 py-2 rounded-lg self-start md:self-auto">
-            Samsun OSB Fabrika • Gülsan Sanayi Merkez
-          </span>
-        </div>
-
-        {/* 4 Clean Category Summary Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {mainCategories.map((cat) => (
-            <div
-              key={cat.name}
-              className="p-4 rounded-xl bg-slate-50 border border-slate-200"
-            >
-              <div className="font-display text-sm font-bold text-slate-900">{cat.name}</div>
-              <div className="text-xs font-medium text-slate-600 mt-1">{cat.role}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Clean 2-Column Corporate Summary + Real Patented Product Showcase */}
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-red-700 bg-red-50 border border-red-200 px-3 py-1 rounded-md">
-              <CheckCircle2 className="w-4 h-4" />
-              Tescilli &amp; Patentli Üretim (Patent No: TR201001761)
-            </div>
-
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-slate-900">
-              Misyonumuz ve Üretim Anlayışımız
-            </h3>
-
-            <p className="text-sm text-slate-600 leading-relaxed">
-              <strong className="text-slate-900">Kestek Soba Sanayii</strong> olarak misyonumuz; <strong className="text-slate-900">Kalite, Güven ve Dürüstlük</strong> ilkelerine bağlı en kaliteli sobaları üretmektir. Bu amaçla teknolojiyi yakından takip etmekte ve yenilikleri ürünlerimize yansıtarak tam müşteri memnuniyeti sağlamaktayız.
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+              <strong>Samsun Volkswagen Özel Servis</strong> olarak Tekkeköy 19 Mayıs Sanayi Sitesi’ndeki
+              modern servisimizde Volkswagen Binek, Volkswagen Ticari, Audi, Seat ve Škoda marka araçlara
+              yetkili servis standartlarında bakım, onarım ve yedek parça hizmeti sunuyoruz.
+            </p>
+            <p className="text-slate-600 text-base leading-relaxed mb-8">
+              Periyodik yağ ve filtre bakımından DSG şanzıman revizyonuna, bilgisayarlı kodlamadan ağır
+              motor mekanik işlemlerine kadar tüm süreçler uzman teknisyen kadromuz tarafından titizlikle
+              yürütülmektedir.
             </p>
 
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Samsun Kirazlık Organize Sanayi Bölgesi&apos;ndeki fabrikamız ve Canik Gülsan Sanayi Sitesi&apos;ndeki merkezimizden Türkiye&apos;nin dört bir yanındaki bayilerimize; <strong className="text-slate-900">kuzineler, ızgaralı sobalar, kovalı sobalar ve döküm tuğlalı şömineli sobalar</strong> sevk ediyoruz.
-            </p>
+            {/* Brand Pills */}
+            <div className="flex flex-wrap gap-2.5">
+              {['Volkswagen Binek', 'VW Ticari (Caddy / Transporter / Crafter)', 'Audi', 'Seat', 'Škoda'].map(
+                (brand) => (
+                  <span
+                    key={brand}
+                    className="px-3.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs sm:text-sm font-semibold border border-slate-200"
+                  >
+                    {brand}
+                  </span>
+                )
+              )}
+            </div>
           </div>
 
-          <div className="lg:col-span-5">
-            <img
-              src="/kestek/slide1.jpg"
-              alt="Kestek Soba Patentli Marifetli Kuzine TR201001761"
-              className="w-full h-56 sm:h-64 object-contain bg-white rounded-xl border border-slate-200 p-3 shadow-xs"
-            />
+          {/* Right Column: Real Workshop Photo */}
+          <div className="relative">
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-100">
+              <img
+                src="/vw/vw-service.jpg"
+                alt="Samsun Volkswagen Özel Servis Atölyesi"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="mt-4 flex items-center justify-between px-4 py-3 rounded-xl bg-slate-900 text-white text-sm">
+              <span className="font-semibold">19 Mayıs Sanayi Sitesi • 59. Sokak No:38</span>
+              <span className="text-sky-400 font-bold">Tekkeköy / Samsun</span>
+            </div>
           </div>
+        </div>
+
+        {/* 4 Clean Summary Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+          {summaryCards.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <div
+                key={item.title}
+                className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-sky-500/40 transition-all"
+              >
+                <div className="w-11 h-11 rounded-xl bg-sky-600 text-white flex items-center justify-center mb-4">
+                  <IconComponent className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 };
+
+export default AboutWorkshop;

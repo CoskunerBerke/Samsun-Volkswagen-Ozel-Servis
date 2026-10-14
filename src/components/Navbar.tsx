@@ -1,125 +1,132 @@
-import React, { useState } from 'react';
-import { Phone, MapPin, Menu, X, Flame, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Phone, MessageCircle, Menu, X } from 'lucide-react';
+import VwLogo from './VwLogo';
 
-export const Navbar: React.FC = () => {
+const Navbar: React.FC = () => {
+  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const navLinks = [
-    { name: 'Kurumsal & Misyonumuz', href: '#kurumsal' },
-    { name: 'Bayi & Müşteri Yorumları', href: '#referanslar' },
-    { name: 'Ürün Gruplarımız', href: '#urunler' },
-    { name: 'Modellerimizden Kareler', href: '#tesis' },
-    { name: 'İletişim & Sipariş', href: '#iletisim' },
+    { name: 'Kurumsal', href: '#kurumsal' },
+    { name: 'Hizmetler', href: '#hizmetler' },
+    { name: 'Müşteri Yorumları', href: '#yorumlar' },
+    { name: 'Servisimiz', href: '#galeri' },
+    { name: 'İletişim & Konum', href: '#iletisim' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-white/10">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-slate-950/95 backdrop-blur-md border-b border-white/10 py-3.5 shadow-xl'
+          : 'bg-gradient-to-b from-slate-950/90 to-transparent py-5'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 gap-4">
-          {/* Left: Official KESTEK Logo + Nav Links */}
-          <div className="flex items-center gap-7">
-            <a href="#" className="flex items-center gap-3 shrink-0">
-              <div className="bg-white px-2.5 py-1.5 rounded-md shadow-xs">
-                <img
-                  src="/kestek/logo.png"
-                  alt="Kestek Soba Sanayii Logo"
-                  className="h-8 sm:h-9 w-auto object-contain"
-                />
-              </div>
-              <div className="hidden sm:block border-l border-white/15 pl-3">
-                <div className="font-display font-bold text-base text-white tracking-wide leading-tight">
-                  KESTEK SOBA SANAYİİ
-                </div>
-                <div className="text-[11px] text-amber-400 font-medium">
-                  Yüksek Verimli Soba &amp; Kuzine • Samsun OSB
-                </div>
-              </div>
-            </a>
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3.5 group">
+            <div className="w-11 h-11 rounded-full bg-blue-600/20 border border-blue-400/30 flex items-center justify-center text-white group-hover:bg-blue-600/30 transition-all">
+              <VwLogo className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <span className="block text-white font-bold text-base sm:text-lg tracking-tight leading-none">
+                SAMSUN VOLKSWAGEN
+              </span>
+              <span className="block text-sky-400 text-[11px] font-semibold tracking-widest uppercase mt-1">
+                ÖZEL SERVİS & YEDEK PARÇA
+              </span>
+            </div>
+          </a>
 
-            <nav className="hidden xl:flex items-center gap-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-sm font-medium text-slate-200 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </nav>
-          </div>
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-slate-200 hover:text-sky-400 transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
 
-          {/* Right: Direct Factory Phone + Order CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Actions */}
+          <div className="hidden sm:flex items-center gap-3">
             <a
-              href="tel:+903622667670"
-              className="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold px-4 py-2.5 rounded-lg border border-white/15 transition-colors"
+              href="tel:+905444775657"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-sm font-semibold border border-white/15 transition-all"
             >
-              <Phone className="w-3.5 h-3.5 text-amber-400" />
-              <span>Fabrika: 0362 266 76 70</span>
+              <Phone className="w-4 h-4 text-sky-400" />
+              <span>0544 477 56 57</span>
             </a>
-
             <a
-              href="#iletisim"
-              className="flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-lg transition-colors shadow-sm"
+              href="https://wa.me/905444775657?text=Merhaba,%20Samsun%20Volkswagen%20%C3%96zel%20Servis%20randevu%20ve%20bilgi%20almak%20istiyorum."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 text-sm font-bold transition-all shadow-lg shadow-sky-500/20"
             >
-              <Flame className="w-4 h-4" />
-              <span>Sipariş &amp; Bayilik Başvurusu</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <MessageCircle className="w-4 h-4" />
+              <span>Randevu Al</span>
             </a>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2.5 rounded-lg bg-slate-900 text-slate-200 hover:text-white border border-white/15"
-            aria-label="Menüyü Aç"
+            className="lg:hidden p-2.5 rounded-xl bg-white/10 text-white hover:bg-white/15 border border-white/10"
+            aria-label="Menüyü Aç/Kapat"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Dropdown */}
-      {mobileMenuOpen && (
-        <div className="xl:hidden bg-slate-950 border-b border-white/10 px-4 pt-3 pb-6 space-y-3">
-          <div className="flex flex-col space-y-1">
+        {/* Mobile Dropdown */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden mt-4 pt-4 pb-5 border-t border-white/10 bg-slate-950/95 rounded-2xl px-4 space-y-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-white hover:bg-slate-900"
+                className="block py-2.5 text-base font-medium text-slate-200 hover:text-sky-400 border-b border-white/5"
               >
                 {link.name}
               </a>
             ))}
-          </div>
-
-          <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
-            <div className="flex items-center gap-2 text-xs text-slate-400 px-2">
-              <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Organize Sanayi Bölgesi Erdoğan Cebeci Bulv. No:44 Kirazlık / Samsun</span>
-            </div>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="pt-2 grid grid-cols-2 gap-3">
               <a
-                href="tel:+903622667670"
-                className="flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-3 rounded-lg text-sm"
+                href="tel:+905444775657"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/10 text-white text-sm font-semibold border border-white/15"
               >
-                <Phone className="w-4 h-4" />
-                Fabrikayı Ara
+                <Phone className="w-4 h-4 text-sky-400" />
+                <span>0544 477 56 57</span>
               </a>
               <a
-                href="tel:+903622380777"
-                className="flex items-center justify-center gap-2 bg-slate-800 text-white font-bold py-3 rounded-lg text-sm"
+                href="https://wa.me/905444775657?text=Merhaba,%20Samsun%20Volkswagen%20%C3%96zel%20Servis%20randevu%20ve%20bilgi%20almak%20istiyorum."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-sky-500 text-slate-950 text-sm font-bold"
               >
-                <Phone className="w-4 h-4" />
-                Merkez: 238 07 77
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   );
 };
+
+export default Navbar;

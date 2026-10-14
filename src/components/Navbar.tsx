@@ -5,32 +5,32 @@ export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Kurumsal & Sertifikalar', href: '#kurumsal' },
-    { name: 'Ürünlerimiz & Bant Takip', href: '#urunler' },
-    { name: "Yılro'da Bir Gün (Video & Tesis)", href: '#tesis' },
-    { name: 'Referanslar & Yorumlar', href: '#referanslar' },
-    { name: 'İ.K. & İletişim', href: '#iletisim' },
+    { name: 'Hakkımızda & Sertifikalar', href: '#kurumsal' },
+    { name: 'Referanslarımız', href: '#referanslar' },
+    { name: 'Ürünlerimiz', href: '#urunler' },
+    { name: 'Üretim & Galeri', href: '#tesis' },
+    { name: 'İletişim', href: '#iletisim' },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-4">
-          {/* Left: Official YILRO Logo + Brand + Nav Links */}
+          {/* Left: Official Logo + Nav Links */}
           <div className="flex items-center gap-7">
-            <a href="#" className="flex items-center gap-3.5 shrink-0 group">
-              <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm border border-white/20 group-hover:scale-[1.02] transition-transform">
+            <a href="#" className="flex items-center gap-3 shrink-0">
+              <div className="bg-white px-2.5 py-1 rounded-md shadow-xs">
                 <img
                   src="/yilro/logo.png"
                   alt="Yılro İnternasyonal Giyim Logo"
                   className="h-9 w-auto object-contain"
                 />
               </div>
-              <div className="hidden sm:block border-l border-white/15 pl-3.5">
-                <div className="font-display font-bold text-sm sm:text-base text-white tracking-wide leading-tight">
-                  YILRO İNTERNASYONAL GİYİM
+              <div className="hidden sm:block border-l border-white/15 pl-3">
+                <div className="font-display font-bold text-base text-white tracking-wide leading-tight">
+                  YILRO GİYİM
                 </div>
-                <div className="text-[11px] text-sky-400 font-medium mt-0.5">
+                <div className="text-[11px] text-slate-400 font-medium">
                   1980 Hollanda • 1989 Samsun OSB
                 </div>
               </div>
@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-slate-200 hover:text-sky-400 transition-colors"
+                  className="text-sm font-medium text-slate-200 hover:text-white transition-colors"
                 >
                   {link.name}
                 </a>
@@ -49,22 +49,22 @@ export const Navbar: React.FC = () => {
             </nav>
           </div>
 
-          {/* Right: Direct Factory Phone + Primary Quote CTA */}
+          {/* Right: Direct Phone + Clean CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
               href="tel:+903622667170"
               className="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold px-4 py-2.5 rounded-lg border border-white/15 transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-sky-400" />
-              <span>Fabrika: +90 362 266 71 70</span>
+              <span>Fabrika: 0362 266 71 70</span>
             </a>
 
             <a
               href="#iletisim"
-              className="flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs sm:text-sm font-bold px-4 py-2.5 rounded-lg transition-colors shadow-sm"
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-lg transition-colors shadow-sm"
             >
               <Mail className="w-4 h-4" />
-              <span>Üretim &amp; İhracat Teklifi</span>
+              <span>İletişim &amp; Teklif Al</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -104,17 +104,17 @@ export const Navbar: React.FC = () => {
             <div className="grid grid-cols-2 gap-2.5">
               <a
                 href="tel:+903622667170"
-                className="flex items-center justify-center gap-2 bg-sky-500 text-slate-950 font-bold py-3 rounded-lg text-sm"
+                className="flex items-center justify-center gap-2 bg-blue-600 text-white font-bold py-3 rounded-lg text-sm"
               >
                 <Phone className="w-4 h-4" />
                 0362 266 71 70
               </a>
               <a
                 href="mailto:info@yilrogiyim.com.tr"
-                className="flex items-center justify-center gap-2 bg-slate-900 text-white border border-white/20 font-bold py-3 rounded-lg text-sm"
+                className="flex items-center justify-center gap-2 bg-slate-800 text-white font-bold py-3 rounded-lg text-sm"
               >
                 <Mail className="w-4 h-4" />
-                E-Posta Gönder
+                E-Posta
               </a>
             </div>
           </div>
